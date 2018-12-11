@@ -5,6 +5,9 @@ var playerBoard = [
     [0, 0, 0]
 ];
 
+var player1 = prompt('Enter Player 1\'s Name!');
+var player2 = prompt('Enter Player 2\'s Name!');
+
 const resetGame = () => {
     playersTurn = 1;
     playerBoard = [
@@ -12,7 +15,6 @@ const resetGame = () => {
         [0, 0, 0],
         [0, 0, 0]
     ];
-    console.log(playerBoard);
     for (var x = 0; x < 9; x++) {
     document.getElementsByClassName('cell')[x].innerText = '';
     }
@@ -113,11 +115,10 @@ const winConditions = (row, col) => {
 }
 
 const winner = () => {
-    console.log(playerBoard);
     if(playersTurn % 2 === 0) {
-        alert('Player 2 Wins!');
+        alert(`${player2} Wins!`);
     } else {
-        alert('Player 1 Wins!');
+        alert(`${player1} Wins!`);
     }
 }
 
@@ -126,7 +127,6 @@ const drawGame = () => {
 }
 
 const placePiece = (spot, row, col) => {
-    console.log(playerBoard);
     let place = document.getElementsByClassName('cell')[spot]
     if(!place.innerText) {
       if (playersTurn % 2 === 0) {
